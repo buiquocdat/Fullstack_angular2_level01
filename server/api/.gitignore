@@ -6,6 +6,4 @@ bin
 obj
 *.suo
 *.user
-*.debug.config
-*.release.config
 /App.UI.Test/output
