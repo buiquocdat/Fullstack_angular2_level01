@@ -1,6 +1,7 @@
 import {IModule, Module, MenuItem} from "../../../../common/models/layout";
 import {Permissions} from "../../permission/permissions";
 import {AuthenticationMode} from "../../../../common/enum";
+import {AddPermission} from "../../permission/addPermission";
 let security: IModule = createModule();
 export default security;
 function createModule() {
@@ -13,6 +14,7 @@ function createModule() {
     );
     module.addRoutes([
         { path: "/permissions", name: "Permissions", component: Permissions, data: { authentication: AuthenticationMode.Require } },
+        { path: "/addPermission", name: "Add Permission", component: AddPermission, data: { authentication: AuthenticationMode.Require}} 
     ]);
     return module;
 }

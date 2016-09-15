@@ -6,5 +6,6 @@ namespace App.Service.Security
     {
         IList<PermissionListItem> GetPermissions();
         void DeletePermission(string itemId);
+        void CreatePermission(CreatePermissionRequest request);
     }
 }

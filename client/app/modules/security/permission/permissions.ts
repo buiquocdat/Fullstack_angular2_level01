@@ -1,8 +1,10 @@
 import {Component} from "angular2/core";
+import {Router} from "angular2/router";
 import {PageActions, Grid} from "../../../common/directive";
 import {BasePage, PageAction} from "../../../common/models/ui";
 import {PermissionsModel} from "./permissionsModel";
 import permissionService from "../_share/service/permissionService";
+import {UrlConfig} from "../_share/config/urlConfig";
 
 @Component({
     templateUrl: "app/modules/security/permission/permissions.html",
@@ -11,16 +13,18 @@ import permissionService from "../_share/service/permissionService";
 
 export class Permissions extends BasePage{
     public model: PermissionsModel;
-    constructor(){
+    private router: Router;
+    constructor(router: Router){
         super();
         let self: Permissions = this;
+        this.router = router;
         self.model = new PermissionsModel(self.i18nHelper);
         this.model.addAction(new PageAction("btnAddPermission", "security.permissions.addPermissionAction", () => self.onAddPermissionClicked()));
         this.loadPermissions();
     }
 
     private onAddPermissionClicked(): void{
-        console.log("onAddPermissionClicked");
+        this.router.navigate([UrlConfig.Create]);
     }
 
     private loadPermissions(): void{
