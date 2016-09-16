@@ -7,4 +7,5 @@ obj
 *.suo
 *.user
 /App.UI.Test/output
-vs/
+.vs/
+.vs
